@@ -52,14 +52,14 @@ void bubbleSort(std::vector<int>& vec)
 - O(log n) - логарифмическое время (бинарный поиск).
 ```
 // return index or -1
-size_t binarySearch(const std::vector<int>& vec, const int target)
+int binarySearch(const std::vector<int>& vec, const int target)
 {
-    size_t left = 0;
-    size_t right = vec.size() - 1;
+    int left = 0;
+    int right = vec.size() - 1;
     while(left <= right) {
-        size_t mid = left + (right - left) / 2;
+        int mid = left + (right - left) / 2;
         if (vec[mid] == target) {
-            return mid
+            return mid;
         } else if (vec[mid] < target) {
             left = mid + 1;
         } else {
