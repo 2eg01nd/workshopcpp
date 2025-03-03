@@ -84,12 +84,55 @@ void removeDuplicates(std::string& str)
     if (str.empty()) 
         return;
     int wIndex = 1;
-    for (int rIndex = 1; rIndex < str.length(); ++rIndex) {
+    for (int rIndex = 1; rIndex < str.size(); ++rIndex) {
         if (str[rIndex] != str[rIndex - 1]) {
             str[wIndex] = str[rIndex];
             ++wIndex;
         }
     }
     str.resize(wIndex);
+}
+```
+
+## Найти первый уникальный символ в строке
+
+Задача. Дана произвольная строка `HelloWorldHe`, нужно вернуть индекс символа, 
+который не повторяется в строке? Из ограничений, нужно сделать это за линейное
+время. Использовать `std::set` не получится.  
+Если уникальных символов нет вернуть -1.
+
+На входе
+```
+HelloWorldHe
+```
+На выходе
+```
+5
+```
+На входе
+```
+aabbccdd
+```
+На выходе
+```
+-1
+```
+Подсказка: подсчитайте символы в строке и помните, для линейной сложности
+нельзя использовать вложенные циклы
+
+Решение:
+```
+int findUniqueChar(const std::string& str)
+{
+    std::unordered_map<char, int> charCount;
+    for (const auto& c : str) {
+        charCount[c]++;
+    }
+    for (size_t i = 0; i < str.size(); ++i) {
+        if (charCount[str[i]] == 1) {
+            return i;
+        }
+    }
+    return -1;
 }
 ```

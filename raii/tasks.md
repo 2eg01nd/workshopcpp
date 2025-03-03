@@ -37,10 +37,7 @@ public:
     size_t size() const { return m_size; } 
 
 private:
-    void reallocate(size_t newCapacity)
-    {
-        // Need code
-    }
+    void reallocate(size_t newCapacity);
 
 private:
     int* m_data = nullptr;

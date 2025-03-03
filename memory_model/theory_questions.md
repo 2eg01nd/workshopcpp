@@ -100,7 +100,7 @@ dq.push_front("start"); // вставка элемента в начало
   размера и перенос всех элементов в новые корзины. 
 ```
 std::unordered<int, std::string> address_book;
-address_book.reserver(50); // Резервирование 50 элементов
+address_book.reserve(50); // Резервирование 50 элементов
 address_book.insert(79990001122, "John");
 ```
 
@@ -146,4 +146,3 @@ std::unique_ptr<int> counter2 = counter1;
 2) Нет
 
 Ответ: 2) `std::unique_ptr` нельзя скопировать.
- 
